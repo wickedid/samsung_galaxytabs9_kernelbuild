@@ -1,6 +1,7 @@
 name: build kernel
 on: 
   workflow_dispatch:
+    input: 
       KERNEL_VERSION:
         description: "内核版本"
         required: true
