@@ -16,6 +16,7 @@ jobs:
           remove-codeql: 'true'
       - name: "配置git账户"
         run: |
+          echo "工作目录: $GITHUB_WORKSPACE"
           echo "正在配置Git用户信息..."
           git config --global user.name "build"
           git config --global user.email "3379524839@qq.com"
@@ -27,11 +28,10 @@ jobs:
           execute_install_scripts: true
       - name: "开始编译"
         run: |
-          ls 
-          bash ./common/actions_build.sh
+          bash $GITHUB_WORKSPACE/common/actions_build.sh
       - name: "上传Anykernel3"
         uses: actions/upload-artifact@v7
         with:
           name: 5.15.153-android13-8-2370170-abX710ZCU5CYH4
-          path: ./common/out/AnyKernel3/*.zip
+          path: $GITHUB_WORKSPACE/common/out/AnyKernel3/*.zip
         

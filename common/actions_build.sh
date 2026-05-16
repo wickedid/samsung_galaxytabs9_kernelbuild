@@ -44,7 +44,7 @@ LOCALVERSION=$LOCALVERSION
 "
 
 # build kernel
-make -j$(nproc) -C $(pwd) O=$(pwd)/out ${ARGS} $TARGET_DEFCONFIG
+make -j$(nproc --all) -C $(pwd) O=$(pwd)/out ${ARGS} $TARGET_DEFCONFIG
 
 ./scripts/config --file out/.config \
   -d UH \
