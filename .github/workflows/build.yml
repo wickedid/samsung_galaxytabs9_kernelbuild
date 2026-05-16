@@ -16,10 +16,10 @@ jobs:
           remove-codeql: 'true'
       - name: "配置git账户"
         run: |
-          echo "🔧 正在配置Git用户信息..."
+          echo "正在配置Git用户信息..."
           git config --global user.name "build"
           git config --global user.email "3379524839@qq.com"
-          echo "✅ Git配置完成"
+          echo "Git配置完成"
       - name: "安装依赖"
         uses: awalsh128/cache-apt-pkgs-action@latest 
         with: 
@@ -27,6 +27,7 @@ jobs:
           execute_install_scripts: true
       - name: "开始编译"
         run: |
+          ls 
           bash ./common/actions_build.sh
       - name: "上传Anykernel3"
         uses: actions/upload-artifact@v7
