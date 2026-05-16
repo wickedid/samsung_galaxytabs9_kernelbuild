@@ -21,14 +21,15 @@ make clean && rm -rf ./out
 # AnyKernel3 zip output to out/AnyKernel3/<your defconfig>_kernel_*.zip
 
 set -e
-
+export KBUILD_BUILD_TIMESTAMP="2025-08-20 08:06:12 UTC"
+export BUILD_NUMBER=X710ZCU5CYH4
 export PATH="/home/ms/code/Android/SM-X710_EUR_15_Opensource/prebuilts/clang/host/linux-x86/clang-r450784e/bin:$PATH"
 export PATH="/home/ms/code/Android/SM-X710_EUR_15_Opensource/prebuilts/kernel-build-tools/linux-x86/bin:$PATH"
 
 TARGET_DEFCONFIG=${1:-kalama_gki_defconfig}
 cd "$(dirname "$0")"
 
-LOCALVERSION=-android13-8
+LOCALVERSION=-android13-8-2370170
 
 if [ "$LTO" == "thin" ]; then
   LOCALVERSION+="-thin"
@@ -52,7 +53,8 @@ make -j$(nproc) -C $(pwd) O=$(pwd)/out ${ARGS} $TARGET_DEFCONFIG
   -d SECURITY_DEFEX \
   -d INTEGRITY \
   -d FIVE \
-  -d TRIM_UNUSED_KSYMS
+  -d TRIM_UNUSED_KSYMS \
+  -d LOCALVERSION_AUTO
 
 if [ "$LTO" = "thin" ]; then
   ./scripts/config --file out/.config -e LTO_CLANG_THIN -d LTO_CLANG_FULL
