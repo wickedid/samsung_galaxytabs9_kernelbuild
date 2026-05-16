@@ -1,14 +1,13 @@
 name: build kernel
-on: 
-  workflow_dispatch:
+on: workflow_dispatch
 jobs: 
   build: 
     name: build kernel
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: "最大化构建空间"
         uses: easimon/maximize-build-space@master
-        with:
+        with: 
           root-reserve-mb: 8192
           temp-reserve-mb: 4096
           remove-dotnet: 'true'
@@ -21,16 +20,17 @@ jobs:
           git config --global user.name "build"
           git config --global user.email "3379524839@qq.com"
           echo "✅ Git配置完成"
-      -name: "安装依赖"
+      - name: "安装依赖"
+        uses: awalsh128/cache-apt-pkgs-action@latest 
         with: 
           packages: git zip build-essential xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio python3 pahole
           execute_install_scripts: true
-      -name: "开始编译"
+      - name: "开始编译"
         run: |
-          bash common/actions_build.sh
-      -name: "上传Anykernel3"
+          bash ./common/actions_build.sh
+      - name: "上传Anykernel3"
         uses: actions/upload-artifact@v7
         with:
           name: 5.15.153-android13-8-2370170-abX710ZCU5CYH4
-          path: common/out/AnyKernel3/*.zip
+          path: ./common/out/AnyKernel3/*.zip
         
