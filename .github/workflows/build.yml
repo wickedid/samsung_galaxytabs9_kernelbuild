@@ -24,7 +24,7 @@ jobs:
       - name: "安装依赖"
         uses: awalsh128/cache-apt-pkgs-action@latest 
         with: 
-          packages: git zip build-essential xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio python3 pahole lld
+          packages: git zip build-essential xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio python3 pahole lld llvm
           execute_install_scripts: true
       - name: "检出代码"
         uses: actions/checkout@v6
