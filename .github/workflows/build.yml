@@ -25,10 +25,10 @@ jobs:
         with: 
           packages: git zip build-essential xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio python3 pahole
           execute_install_scripts: true
-      -name: "开始编译"
+      - name: "开始编译"
         run: |
           bash common/actions_build.sh
-      -name: "上传Anykernel3"
+      - name: "上传Anykernel3"
         uses: actions/upload-artifact@v7
         with:
           name: 5.15.153-android13-8-2370170-abX710ZCU5CYH4
