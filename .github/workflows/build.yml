@@ -1,17 +1,6 @@
 name: build kernel
 on: 
-  workflow_dispatch:
-    input: 
-      KERNEL_VERSION:
-        description: "内核版本"
-        required: true
-        type: choice
-        options:
-          - '6.6'
-          - '6.1'
-          - '5.15'
-          - '5.10'
-        default: '6.1'
+  workflow_dispatch: 
 jobs: 
   build: 
     name: build kernel
