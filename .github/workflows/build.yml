@@ -26,6 +26,8 @@ jobs:
         with: 
           packages: git zip build-essential xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio python3 pahole
           execute_install_scripts: true
+      - name: "检出代码"
+        uses: actions/checkout@v6
       - name: "开始编译"
         run: |
           bash $GITHUB_WORKSPACE/common/actions_build.sh
