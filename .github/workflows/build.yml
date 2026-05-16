@@ -5,10 +5,10 @@ jobs:
   build: 
     name: build kernel
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: "最大化构建空间"
         uses: easimon/maximize-build-space@master
-        with:
+        with: 
           root-reserve-mb: 8192
           temp-reserve-mb: 4096
           remove-dotnet: 'true'
