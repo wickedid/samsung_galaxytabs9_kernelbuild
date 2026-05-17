@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: 5.15.153-android13-8-2370170-abX710ZCU5CYH4
-          path: $GITHUB_WORKSPACE/common/out/AnyKernel3/*.zip
+          path: $GITHUB_WORKSPACE/samsung_galaxytabs9_kernelbuild/common/out/AnyKernel3/*.zip
         
